@@ -9,18 +9,31 @@ namespace WaveFrontParserTests
     {
         public class LoadObjFileHendlerTests
         {
-            static string path = "localFile";
-            LoadObjFileHendler fileHendler = new LoadObjFileHendler( path );
+            static string fileName = "localFile";
+            LoadObjFileHendler fileHendler = new LoadObjFileHendler(fileName);
 
             [Fact]
-            public void LoadObjFileHendler_AddingCurrentDirectoryPathPrefixToGivenFileName_PathExist()
+            public void LoadObjFileHendler_AddingCurrentDirectoryPathPrefixToGivenFileName_DirectoryExist()
             {
-                var Modifiedpath = fileHendler.objFilePath;
-                var directory = Modifiedpath.TrimEnd(path.ToCharArray());
+                var Modifiedpath = fileHendler.FilePath;
 
-                Assert.True(Directory.Exists(directory));
+                var directory = Modifiedpath.TrimEnd(fileName.ToCharArray());
+                var IsDirectoryExist = Directory.Exists(directory);
+
+                Assert.True(IsDirectoryExist);
 
             }
+
+            [Fact]
+            public void LoadObjFileHendler_IsBackslashAddedBetweenCurrentDIrectoryAndLocalFileName_FoundForwardSlash()
+            {
+                var Modifiedpath = fileHendler.FilePath; Modifiedpath.TrimEnd(fileName.ToCharArray());
+                var CharBeforeLocalFileName = Modifiedpath.Substring(Modifiedpath.LastIndexOf(@"\"), 1);
+
+                Assert.Equal(@"\", CharBeforeLocalFileName);
+
+            }
+
         }
         
 

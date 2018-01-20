@@ -10,5 +10,12 @@ namespace WaveFrontParser.Model
         public List<int> NormIndicies { get; set; } // 3 normal [3d]
         public List<int> TexIndicies { get; set; } // 3 texture vertex[2d]
 
+        public Face()
+        {
+            VertIndicies = new List<int>();
+            NormIndicies = new List<int>();
+            TexIndicies = new List<int>();
+        }
+
     }
 }

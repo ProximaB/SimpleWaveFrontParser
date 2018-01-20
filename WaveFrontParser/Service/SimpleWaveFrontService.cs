@@ -138,23 +138,47 @@ namespace WaveFrontParser.Service
         }
 
         public List<Face> LookForFaces()
-        {
+       {
             List<Face> faces = new List<Face>();
-            faces.Add(new Face()
-            {
-                VertIndicies = new List<int>() { 1, 2, 3 },
-                NormIndicies = new List<int>() { 1, 2, 3 },
-                TexIndicies = new List<int>() { 1, 1, 1 },
-            });
 
-            faces.Add(new Face()
-            {
-                VertIndicies = new List<int>() { 1, 3, 4 },
-                NormIndicies = new List<int>() { 1, 3, 4 },
-                TexIndicies = new List<int>() { 1, 1, 1 },
-            });
 
+            string content = LoadFile.FileContent;
+            List<string> textFacesTab = new List<string>();
+            content = content.Remove(0, content.IndexOf("f "));
+
+            var lines = content.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var line in lines)
+            {
+                if (line.StartsWith("f "))
+                {
+                    textFacesTab.Add(line.Substring(2));
+                }
+            }
+
+            foreach (var txtFace in textFacesTab)
+            {
+                Face face = new Face();
+                var faceTab = txtFace.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                if (faceTab.Length == 3)
+                {
+                    foreach(var faceEnum in faceTab)
+                    {
+                        var temp = faceEnum.Split('/', StringSplitOptions.RemoveEmptyEntries);
+                        if (temp.Length == 3)
+                        {
+                            face.VertIndicies.Add(Convert.ToInt16(temp[0]));
+                            face.NormIndicies.Add(Convert.ToInt16(temp[1]));
+                            face.TexIndicies.Add(Convert.ToInt16(temp[2]));
+                        }
+                        else throw new NullReferenceException(message: $"Doesn't found indicies for Face. \n faceTab[this] = {faceEnum.ToString()}\n");
+                    }
+                }
+                else throw new NullReferenceException(message: $"Doesn't found x, y TExtureVertex. \n txtFace[this] = {textFacesTab.ToString()}\n");
+
+                faces.Add(face);
+            }
             WaveFront.Faces = faces;
+
             return faces;
         }
     }

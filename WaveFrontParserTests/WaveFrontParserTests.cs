@@ -47,8 +47,8 @@ namespace WaveFrontParser.Tests
             public class LookForVertexsTests
             {
                 CompareObjects util = new CompareObjects();
-                static string testVertexs = "v 1.000000 -1.000000 -1.000000\r\n"
-                                   + "v 1.000000 -1.000000 1.000000 \r\n";
+                static string testVertexs = "v 45.000000 -1.000000 -1.000000\r\n"
+                                   + "v 1.000000 -22.000000 1.000000 \r\n";
                 //mock
                 ILoadObjFileHandler obj = new LoadObjFileHandlerMock(testVertexs);
               
@@ -59,8 +59,8 @@ namespace WaveFrontParser.Tests
 
                     var vertexs = waveService.LookForVertexs();
 
-                    bool CompareResult = (util.Compare(vertexs[0], new Vertex() { XAxis = 1, YAxis = -1, ZAxis = -1 }) == 1 
-                                       && util.Compare(vertexs[1], new Vertex() { XAxis = 1, YAxis = -1, ZAxis =  1 }) == 1);
+                    bool CompareResult = (util.Compare(vertexs[0], new Vertex() { XAxis = 45, YAxis = -1, ZAxis = -1 }) == 1 
+                                       && util.Compare(vertexs[1], new Vertex() { XAxis = 1, YAxis = -22, ZAxis =  1 }) == 1);
 
                     Assert.True(CompareResult);
                 }
@@ -117,7 +117,7 @@ namespace WaveFrontParser.Tests
                 {
                     CompareObjects util = new CompareObjects();
 
-                    static string testFaces = "f 1/1/1 2/2/1 3/3/1\n\r"
+                    static string testFaces = "f 6/1/1 4/2/1 0/3/1\n\r"
                                                 +"f 1/1/1 3/3/1 4/4/1\n\r";
                     //mock
                     ILoadObjFileHandler obj = new LoadObjFileHandlerMock(testFaces);
@@ -132,7 +132,7 @@ namespace WaveFrontParser.Tests
                         bool CompareResult =
                             (util.Compare(facesIndicies[0], new Face()
                             {
-                                VertIndicies = new List<int>() { 1, 2, 3 },
+                                VertIndicies = new List<int>() { 6, 4, 0 },
                                 NormIndicies = new List<int>() { 1, 2, 3 },
                                 TexIndicies = new List<int>() { 1, 1, 1 },
                             }) == 1)

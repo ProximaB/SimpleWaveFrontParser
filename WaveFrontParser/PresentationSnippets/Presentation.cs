@@ -80,12 +80,75 @@ namespace WaveFrontParser.PresentationSnippets
             _WaveService.LookForVertexs();
             _WaveService.LookForNormals();
             _WaveService.LookForTextureVertex();
+            _WaveService.LookForFaces();
 
             SimpleWaveFront waveFront = _WaveService.WaveFront;
             var vertexs = waveFront.Vertexs;
             var normals = waveFront.Normal;
             var textVertexs = waveFront.TexVertexs;
+            var faces = waveFront.Faces;
 
+            var i = 1;
+            foreach (var face in faces)
+            {
+                Console.WriteLine($"\n\nFace {i}");
+                Console.WriteLine("Vertexs:");
+                face.VertIndicies.ForEach(a => Console.Write(a + ", "));
+                Console.WriteLine("\nNormals:");
+                face.NormIndicies.ForEach(a => Console.Write(a + ", "));
+                Console.WriteLine("\nTextureVertexs:");
+                face.TexIndicies.ForEach(a => Console.Write(a + ", "));
+
+                i++;
+            }
+
+        }
+
+
+
+        public static void Interpolation()
+        {
+            LoadObjFileHandler Obj = new LoadObjFileHandler("cube.obj");
+            Console.WriteLine("Result: " + Obj.LoadObj().ToString());
+
+            SimpleWaveFrontService _WaveService = new SimpleWaveFrontService(Obj);
+
+            _WaveService.LookForVertexs();
+            _WaveService.LookForNormals();
+            _WaveService.LookForTextureVertex();
+            _WaveService.LookForFaces();
+
+            SimpleWaveFront waveFront = _WaveService.WaveFront;
+            var vertexs = waveFront.Vertexs;
+            var normals = waveFront.Normal;
+            var textVertexs = waveFront.TexVertexs;
+            var faces = waveFront.Faces;
+
+            var i = 1;
+            foreach (var face in faces)
+            {
+                Console.WriteLine($"\n\nFace {i}");
+
+                Console.WriteLine("Vertexs:");
+                face.VertIndicies.ForEach(a => 
+                {
+                    Console.WriteLine($"{a}. x={vertexs[a].XAxis}, y={vertexs[a].YAxis}, z={vertexs[a].ZAxis}");
+                });
+
+                Console.WriteLine("\nNormals:");
+                face.NormIndicies.ForEach(a =>
+                {
+                    Console.WriteLine($"{a}. x={normals[a].XAxis}, y={normals[a].YAxis}, z={normals[a].ZAxis}");
+                });
+
+                Console.WriteLine("\nTextureVertexs:");
+                face.VertIndicies.ForEach(a =>
+                {
+                    Console.WriteLine($"{a}. x={textVertexs[a].XAxis}, y={textVertexs[a].YAxis}");
+                });
+
+                i++;
+            }
 
         }
     }

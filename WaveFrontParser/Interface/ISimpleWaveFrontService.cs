@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using WaveFrontParser.Hendler;
+using WaveFrontParser.Handler;
 using WaveFrontParser.Model;
 
 namespace WaveFrontParser.Interface
 {
-    interface ISimpleWaveFrontService
+    public interface ISimpleWaveFrontService
     {
-        LoadObjFileHendler LoadFile { get; set; }
-        bool LookForVertexs(ILoadObjFileHendler file, List<Vertex> vertexs);
-        bool LookForNormals(ILoadObjFileHendler file, List<Vertex> normals);
-        bool LookForTextureVertex(ILoadObjFileHendler file, List<Vertex> texVertex);
+        ILoadObjFileHandler LoadFile { get; set; }
+        bool LookForVertexs(ILoadObjFileHandler file, List<Vertex> vertexs);
+        bool LookForNormals(ILoadObjFileHandler file, List<Normal> normals);
+        bool LookForTextureVertex(ILoadObjFileHandler file, List<TextureVertex> texVertex);
     }
 }

@@ -2,34 +2,66 @@
 using System.Collections.Generic;
 using System.Text;
 using WaveFrontParser.Model;
-using WaveFrontParser.Hendler;
+using WaveFrontParser.Handler;
 using WaveFrontParser.Interface;
+using System.Globalization;
 
 namespace WaveFrontParser.Service
 {
     public class SimpleWaveFrontService : ISimpleWaveFrontService
     {
-        public LoadObjFileHendler LoadFile { get; set; }
+        public ILoadObjFileHandler LoadFile { get; set; }
 
         public SimpleWaveFront WaveFront { get;  set; }
 
-        public bool LookForVertexs(ILoadObjFileHendler file, List<Vertex> vertexs)
+        public bool LookForVertexs(ILoadObjFileHandler file, List<Vertex> vertexs)
         {
             string content = file.FileContent;
-            vertexs.Add(new Vertex() { XAxis = 1, YAxis = -1, ZAxis = -1 });
-            vertexs.Add (new Vertex() { XAxis = 1, YAxis = -1, ZAxis = 1 });
-            return true;
+            List<string> vertexsTab = new List<string>();
+            content = content.Remove(0, content.IndexOf("v "));
 
-        }
-        public bool LookForNormals(ILoadObjFileHendler file, List<Vertex> normals)
-        {
-            string content = file.FileContent;
+            //vertexs.Add(new Vertex() { XAxis = 1, YAxis = -1, ZAxis = -1 });
+            //vertexs.Add (new Vertex() { XAxis = 1, YAxis = -1, ZAxis = 1 });
 
+            var lines = content.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach(var line in lines)
+            {
+                if(line.StartsWith("v "))
+                {
+                    vertexsTab.Add(line.Substring(1));
+                }
+            }
+
+            foreach( var vrtx in vertexsTab)
+            {
+                Vertex vertex = new Vertex();
+
+                var vertTab  = vrtx.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                if (vertTab.Length == 3)
+                {
+                    vertex.XAxis = Convert.ToDouble(vertTab[0], CultureInfo.InvariantCulture);
+                    vertex.YAxis = Convert.ToDouble(vertTab[1], CultureInfo.InvariantCulture);
+                    vertex.ZAxis = Convert.ToDouble(vertTab[2], CultureInfo.InvariantCulture);
+                }
+                else throw new NullReferenceException(message: $"Doesn't found x, y, z of Vertex. \n vertexTab[this] = {vrtx}\n");
+
+                vertexs.Add(vertex);
+            }
             
             return true;
+
+        }
+        public bool LookForNormals(ILoadObjFileHandler file, List<Normal> normals)
+        {
+            string content = file.FileContent;
+
+            normals.Add(new Normal() { XAxis = 0, YAxis = -1, ZAxis = 0 });
+            normals.Add(new Normal() { XAxis = 0, YAxis = 1, ZAxis = 0 });
+
+            return true;
         }
 
-        public bool LookForTextureVertex(ILoadObjFileHendler file, List<Vertex> texVertex)
+        public bool LookForTextureVertex(ILoadObjFileHandler file, List<TextureVertex> texVertex)
         {
             throw new NotImplementedException();
         }

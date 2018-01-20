@@ -1716,6 +1716,12 @@
           "lib/netstandard1.1/xunit.execution.dotnet.dll": {}
         }
       },
+      "xunit.runner.console/2.3.1": {
+        "type": "package",
+        "build": {
+          "build/xunit.runner.console.props": {}
+        }
+      },
       "xunit.runner.visualstudio/2.3.1": {
         "type": "package",
         "dependencies": {
@@ -1723,6 +1729,19 @@
         },
         "build": {
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
+        }
+      },
+      "WaveFrontParser/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Microsoft.NETCore.App": "2.0.0"
+        },
+        "compile": {
+          "bin/placeholder/WaveFrontParser.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WaveFrontParser.dll": {}
         }
       }
     }
@@ -5712,6 +5731,39 @@
         "xunit.extensibility.execution.nuspec"
       ]
     },
+    "xunit.runner.console/2.3.1": {
+      "sha512": "bvkd5z72ioJUsLzXuajcXlKtAp/2d7BqdfnluNZEMQbqTEu2xvxKRCNj+OrUKjsrDREwjsYqz6c8pd+/xhPWFg==",
+      "type": "package",
+      "path": "xunit.runner.console/2.3.1",
+      "files": [
+        "build/xunit.runner.console.props",
+        "tools/net452/xunit.abstractions.dll",
+        "tools/net452/xunit.console.exe",
+        "tools/net452/xunit.console.exe.config",
+        "tools/net452/xunit.console.x86.exe",
+        "tools/net452/xunit.console.x86.exe.config",
+        "tools/net452/xunit.runner.reporters.net452.dll",
+        "tools/net452/xunit.runner.utility.net452.dll",
+        "tools/netcoreapp1.0/xunit.abstractions.dll",
+        "tools/netcoreapp1.0/xunit.console.deps.json",
+        "tools/netcoreapp1.0/xunit.console.dll",
+        "tools/netcoreapp1.0/xunit.console.dll.config",
+        "tools/netcoreapp1.0/xunit.console.runtimeconfig.json",
+        "tools/netcoreapp1.0/xunit.runner.reporters.netcoreapp10.dll",
+        "tools/netcoreapp1.0/xunit.runner.utility.netcoreapp10.dll",
+        "tools/netcoreapp1.0/xunit.runner.utility.netcoreapp10.xml",
+        "tools/netcoreapp2.0/xunit.abstractions.dll",
+        "tools/netcoreapp2.0/xunit.console.deps.json",
+        "tools/netcoreapp2.0/xunit.console.dll",
+        "tools/netcoreapp2.0/xunit.console.dll.config",
+        "tools/netcoreapp2.0/xunit.console.runtimeconfig.json",
+        "tools/netcoreapp2.0/xunit.runner.reporters.netcoreapp10.dll",
+        "tools/netcoreapp2.0/xunit.runner.utility.netcoreapp10.dll",
+        "tools/netcoreapp2.0/xunit.runner.utility.netcoreapp10.xml",
+        "xunit.runner.console.2.3.1.nupkg.sha512",
+        "xunit.runner.console.nuspec"
+      ]
+    },
     "xunit.runner.visualstudio/2.3.1": {
       "sha512": "B+RtW4dyBquEyjSAFyV5RMifaOZOirDwlzcIq2DNVGo1gzJS8PAPu5S+2y1n6ZgEMWbpqJf9TkZ55+X6FLdy3A==",
       "type": "package",
@@ -5738,12 +5790,19 @@
         "xunit.runner.visualstudio.2.3.1.nupkg.sha512",
         "xunit.runner.visualstudio.nuspec"
       ]
+    },
+    "WaveFrontParser/1.0.0": {
+      "type": "project",
+      "path": "../WaveFrontParser/WaveFrontParser.csproj",
+      "msbuildProject": "../WaveFrontParser/WaveFrontParser.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "Microsoft.NETCore.App >= 2.0.0",
+      "WaveFrontParser >= 1.0.0",
       "xunit >= 2.3.1",
+      "xunit.runner.console >= 2.3.1",
       "xunit.runner.visualstudio >= 2.3.1"
     ]
   },
@@ -5757,9 +5816,9 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\barte\\source\\repos\\SimpleWaveFrontParser\\WaveFrontParserTests\\WaveFrontParserTests.csproj",
-      "projectName": "WaveFrontParserTests",
-      "projectPath": "C:\\Users\\barte\\source\\repos\\SimpleWaveFrontParser\\WaveFrontParserTests\\WaveFrontParserTests.csproj",
+      "projectUniqueName": "C:\\Users\\barte\\source\\repos\\SimpleWaveFrontParser\\WaveFrontParserTests\\WaveFrontParser.Tests.csproj",
+      "projectName": "WaveFrontParser.Tests",
+      "projectPath": "C:\\Users\\barte\\source\\repos\\SimpleWaveFrontParser\\WaveFrontParserTests\\WaveFrontParser.Tests.csproj",
       "packagesPath": "C:\\Users\\barte\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\barte\\source\\repos\\SimpleWaveFrontParser\\WaveFrontParserTests\\obj\\",
       "projectStyle": "PackageReference",
@@ -5779,7 +5838,11 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\barte\\source\\repos\\SimpleWaveFrontParser\\WaveFrontParser\\WaveFrontParser.csproj": {
+              "projectPath": "C:\\Users\\barte\\source\\repos\\SimpleWaveFrontParser\\WaveFrontParser\\WaveFrontParser.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -5797,6 +5860,10 @@
             "autoReferenced": true
           },
           "xunit": {
+            "target": "Package",
+            "version": "[2.3.1, )"
+          },
+          "xunit.runner.console": {
             "target": "Package",
             "version": "[2.3.1, )"
           },

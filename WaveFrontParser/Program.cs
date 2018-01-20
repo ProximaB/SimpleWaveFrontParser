@@ -1,6 +1,9 @@
 ﻿using System;
-using WaveFrontParser.Hendler;
+using System.Collections.Generic;
+using WaveFrontParser.Handler;
+using WaveFrontParser.Model;
 using WaveFrontParser.Service;
+using WaveFrontParser.PresentationSnippets;
 
 namespace WaveFrontParser
 {
@@ -8,9 +11,7 @@ namespace WaveFrontParser
     {
         static void Main(string[] args)
         {
-            LoadObjFileHendler Obj = new LoadObjFileHendler("cube.obj");
-            Console.WriteLine("Result: " + Obj.LoadObj().ToString());
-    
+            Presentation.FindVertexDemo();
 
         }
     }

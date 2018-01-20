@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaveFrontParser", "WaveFrontParser\WaveFrontParser.csproj", "{0F06BB78-56D4-4F83-AEAF-9B16C1F38A7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaveFrontParser", "WaveFrontParser\WaveFrontParser.csproj", "{0F06BB78-56D4-4F83-AEAF-9B16C1F38A7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaveFrontParserTests", "WaveFrontParserTests\WaveFrontParserTests.csproj", "{95B7AD7B-4B8B-42DA-977C-87828FF3DCE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WaveFrontParser.Tests", "WaveFrontParserTests\WaveFrontParser.Tests.csproj", "{95B7AD7B-4B8B-42DA-977C-87828FF3DCE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

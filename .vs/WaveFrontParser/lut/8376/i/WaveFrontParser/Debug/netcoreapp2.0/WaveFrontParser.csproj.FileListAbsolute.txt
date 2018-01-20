@@ -1,0 +1,8 @@
+c:\users\barte\source\repos\WaveFrontParser\.vs\WaveFrontParser\lut\0\b\WaveFrontParser\Debug\netcoreapp2.0\WaveFrontParser.deps.json
+c:\users\barte\source\repos\WaveFrontParser\.vs\WaveFrontParser\lut\0\b\WaveFrontParser\Debug\netcoreapp2.0\WaveFrontParser.dll
+c:\users\barte\source\repos\WaveFrontParser\.vs\WaveFrontParser\lut\0\b\WaveFrontParser\Debug\netcoreapp2.0\WaveFrontParser.pdb
+c:\users\barte\source\repos\WaveFrontParser\.vs\WaveFrontParser\lut\0\i\WaveFrontParser\Debug\netcoreapp2.0\WaveFrontParser.csproj.CoreCompileInputs.cache
+c:\users\barte\source\repos\WaveFrontParser\.vs\WaveFrontParser\lut\0\i\WaveFrontParser\Debug\netcoreapp2.0\WaveFrontParser.AssemblyInfoInputs.cache
+c:\users\barte\source\repos\WaveFrontParser\.vs\WaveFrontParser\lut\0\i\WaveFrontParser\Debug\netcoreapp2.0\WaveFrontParser.AssemblyInfo.cs
+c:\users\barte\source\repos\WaveFrontParser\.vs\WaveFrontParser\lut\0\i\WaveFrontParser\Debug\netcoreapp2.0\WaveFrontParser.dll
+c:\users\barte\source\repos\WaveFrontParser\.vs\WaveFrontParser\lut\0\i\WaveFrontParser\Debug\netcoreapp2.0\WaveFrontParser.pdb

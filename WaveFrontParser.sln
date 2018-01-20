@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaveFrontParser", "WaveFrontParser\WaveFrontParser.csproj", "{0F06BB78-56D4-4F83-AEAF-9B16C1F38A7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaveFrontParserTests", "WaveFrontParserTests\WaveFrontParserTests.csproj", "{95B7AD7B-4B8B-42DA-977C-87828FF3DCE3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F06BB78-56D4-4F83-AEAF-9B16C1F38A7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F06BB78-56D4-4F83-AEAF-9B16C1F38A7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F06BB78-56D4-4F83-AEAF-9B16C1F38A7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F06BB78-56D4-4F83-AEAF-9B16C1F38A7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95B7AD7B-4B8B-42DA-977C-87828FF3DCE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95B7AD7B-4B8B-42DA-977C-87828FF3DCE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95B7AD7B-4B8B-42DA-977C-87828FF3DCE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95B7AD7B-4B8B-42DA-977C-87828FF3DCE3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DA2714BD-A694-40C6-AB60-884016E645CF}
+	EndGlobalSection
+EndGlobal

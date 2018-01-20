@@ -1,0 +1,3 @@
+c:\users\barte\source\repos\WaveFrontParser\.vs\WaveFrontParser\lut\0\i\WaveFrontParserTests\Debug\netcoreapp2.0\WaveFrontParserTests.csproj.CoreCompileInputs.cache
+c:\users\barte\source\repos\WaveFrontParser\.vs\WaveFrontParser\lut\0\i\WaveFrontParserTests\Debug\netcoreapp2.0\WaveFrontParserTests.AssemblyInfoInputs.cache
+c:\users\barte\source\repos\WaveFrontParser\.vs\WaveFrontParser\lut\0\i\WaveFrontParserTests\Debug\netcoreapp2.0\WaveFrontParserTests.AssemblyInfo.cs

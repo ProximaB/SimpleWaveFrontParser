@@ -1,0 +1,14 @@
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParserTests\bin\Debug\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParserTests\bin\Debug\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParserTests\bin\Debug\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParserTests\bin\Debug\netcoreapp2.0\WaveFrontParserTests.deps.json
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParserTests\bin\Debug\netcoreapp2.0\WaveFrontParserTests.runtimeconfig.json
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParserTests\bin\Debug\netcoreapp2.0\WaveFrontParserTests.runtimeconfig.dev.json
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParserTests\bin\Debug\netcoreapp2.0\WaveFrontParserTests.dll
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParserTests\bin\Debug\netcoreapp2.0\WaveFrontParserTests.pdb
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParserTests\obj\Debug\netcoreapp2.0\WaveFrontParserTests.csprojResolveAssemblyReference.cache
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParserTests\obj\Debug\netcoreapp2.0\WaveFrontParserTests.csproj.CoreCompileInputs.cache
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParserTests\obj\Debug\netcoreapp2.0\WaveFrontParserTests.AssemblyInfoInputs.cache
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParserTests\obj\Debug\netcoreapp2.0\WaveFrontParserTests.AssemblyInfo.cs
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParserTests\obj\Debug\netcoreapp2.0\WaveFrontParserTests.dll
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParserTests\obj\Debug\netcoreapp2.0\WaveFrontParserTests.pdb

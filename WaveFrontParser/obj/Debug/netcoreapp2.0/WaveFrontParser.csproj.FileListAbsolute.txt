@@ -1,0 +1,9 @@
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParser\bin\Debug\netcoreapp2.0\WaveFrontParser.deps.json
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParser\bin\Debug\netcoreapp2.0\WaveFrontParser.dll
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParser\bin\Debug\netcoreapp2.0\WaveFrontParser.pdb
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParser\obj\Debug\netcoreapp2.0\WaveFrontParser.csproj.CoreCompileInputs.cache
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParser\obj\Debug\netcoreapp2.0\WaveFrontParser.AssemblyInfoInputs.cache
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParser\obj\Debug\netcoreapp2.0\WaveFrontParser.AssemblyInfo.cs
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParser\obj\Debug\netcoreapp2.0\WaveFrontParser.dll
+c:\users\barte\source\repos\WaveFrontParser\WaveFrontParser\obj\Debug\netcoreapp2.0\WaveFrontParser.pdb
+C:\Users\barte\source\repos\WaveFrontParser\WaveFrontParser\obj\Debug\netcoreapp2.0\WaveFrontParser.csprojResolveAssemblyReference.cache

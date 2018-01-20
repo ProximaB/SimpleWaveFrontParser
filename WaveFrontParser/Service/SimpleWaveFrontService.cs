@@ -10,13 +10,22 @@ namespace WaveFrontParser.Service
 {
     public class SimpleWaveFrontService : ISimpleWaveFrontService
     {
+        private SimpleWaveFront waveFront = new SimpleWaveFront();
+
         public ILoadObjFileHandler LoadFile { get; set; }
 
-        public SimpleWaveFront WaveFront { get;  set; }
+        public SimpleWaveFront WaveFront { get { return waveFront; } set { waveFront = value; } }
 
-        public bool LookForVertexs(ILoadObjFileHandler file, List<Vertex> vertexs)
+        public SimpleWaveFrontService(ILoadObjFileHandler _loadFile)
         {
-            string content = file.FileContent;
+            LoadFile = _loadFile;
+        }
+
+        public List<Vertex> LookForVertexs()
+        {
+            List<Vertex> vertexs = new List<Vertex>();
+
+            string content = LoadFile.FileContent;
             List<string> vertexsTab = new List<string>();
             content = content.Remove(0, content.IndexOf("v "));
 
@@ -47,13 +56,16 @@ namespace WaveFrontParser.Service
 
                 vertexs.Add(vertex);
             }
-            
-            return true;
+
+            WaveFront.Vertexs = vertexs;
+            return vertexs;
 
         }
-        public bool LookForNormals(ILoadObjFileHandler file, List<Normal> normals)
+        public List<Normal> LookForNormals()
         {
-            string content = file.FileContent;
+            List<Normal> normals = new List<Normal>();
+
+            string content = LoadFile.FileContent;
             List<string> normalsTab = new List<string>();
             content = content.Remove(0, content.IndexOf("vn "));
 
@@ -83,13 +95,19 @@ namespace WaveFrontParser.Service
                 //normals.Add(new Normal() { XAxis = 0, YAxis = -1, ZAxis = 0 });
                 //normals.Add(new Normal() { XAxis = 0, YAxis = 1, ZAxis = 0 });
             }
-            
-            return true;
+            WaveFront.Normal = normals;
+            return normals;
         }
 
-        public bool LookForTextureVertex(ILoadObjFileHandler file, List<TextureVertex> texVertex)
+        public List<TextureVertex> LookForTextureVertex()
         {
-            throw new NotImplementedException();
+            List<TextureVertex> texVerts = new List<TextureVertex>();
+
+            texVerts.Add(new TextureVertex() { XAxis = 0.5, YAxis = 0.2 });
+            texVerts.Add(new TextureVertex() { XAxis = 0.35, YAxis = 0.4 });
+
+            waveFront.TexVertexs = texVerts;
+            return texVerts;
         }
 
     }

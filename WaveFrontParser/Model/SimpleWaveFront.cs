@@ -7,8 +7,8 @@ namespace WaveFrontParser.Model
     public class SimpleWaveFront
     {
         public List<Face> Faces { get; set; }
-        public Vertex[] Vertexs { get; set; }
-        public Normal[] Normal { get; set; }
-        public TextureVertex[] TexVertexs { get; set; }
+        public List<Vertex> Vertexs { get; set; }
+        public List<Normal> Normal { get; set; }
+        public List<TextureVertex> TexVertexs { get; set; }
     }
 }

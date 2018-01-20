@@ -9,8 +9,8 @@ namespace WaveFrontParser.Interface
     public interface ISimpleWaveFrontService
     {
         ILoadObjFileHandler LoadFile { get; set; }
-        bool LookForVertexs(ILoadObjFileHandler file, List<Vertex> vertexs);
-        bool LookForNormals(ILoadObjFileHandler file, List<Normal> normals);
-        bool LookForTextureVertex(ILoadObjFileHandler file, List<TextureVertex> texVertex);
+        List<Vertex> LookForVertexs ();
+        List<Normal> LookForNormals ();
+        List<TextureVertex> LookForTextureVertex ();
     }
 }

@@ -11,7 +11,7 @@ namespace WaveFrontParser
     {
         static void Main(string[] args)
         {
-            Presentation.FindVertexDemo();
+            Presentation.FindVertexs();
 
         }
     }

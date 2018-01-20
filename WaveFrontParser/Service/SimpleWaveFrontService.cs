@@ -28,7 +28,7 @@ namespace WaveFrontParser.Service
             {
                 if(line.StartsWith("v "))
                 {
-                    vertexsTab.Add(line.Substring(1));
+                    vertexsTab.Add(line.Substring(2));
                 }
             }
 
@@ -54,10 +54,36 @@ namespace WaveFrontParser.Service
         public bool LookForNormals(ILoadObjFileHandler file, List<Normal> normals)
         {
             string content = file.FileContent;
+            List<string> normalsTab = new List<string>();
+            content = content.Remove(0, content.IndexOf("vn "));
 
-            normals.Add(new Normal() { XAxis = 0, YAxis = -1, ZAxis = 0 });
-            normals.Add(new Normal() { XAxis = 0, YAxis = 1, ZAxis = 0 });
+            var lines = content.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach ( var line in lines)
+            {
+                if(line.StartsWith("vn "))
+                {
+                    normalsTab.Add(line.Substring(3));
+                }
+            }
 
+            foreach(var nrml in normalsTab)
+            {
+                Normal normal = new Normal();
+                var normTab = nrml.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                if (normTab.Length == 3)
+                {
+                    normal.XAxis = Convert.ToDouble(normTab[0], CultureInfo.InvariantCulture);
+                    normal.YAxis = Convert.ToDouble(normTab[1], CultureInfo.InvariantCulture);
+                    normal.ZAxis = Convert.ToDouble(normTab[2], CultureInfo.InvariantCulture);
+                }
+                else throw new NullReferenceException(message: $"Doesn't found x, y, z of Normals. \n normalTab[this] = {nrml}\n");
+
+                normals.Add(normal);
+
+                //normals.Add(new Normal() { XAxis = 0, YAxis = -1, ZAxis = 0 });
+                //normals.Add(new Normal() { XAxis = 0, YAxis = 1, ZAxis = 0 });
+            }
+            
             return true;
         }
 

@@ -15,3 +15,5 @@ C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\obj\Debug\netc
 C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\obj\Debug\netcoreapp2.0\WaveFrontParser.AssemblyInfo.cs
 C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\obj\Debug\netcoreapp2.0\WaveFrontParser.dll
 C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\obj\Debug\netcoreapp2.0\WaveFrontParser.pdb
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\bin\Debug\netcoreapp2.0\WaveFrontParser.runtimeconfig.json
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\bin\Debug\netcoreapp2.0\WaveFrontParser.runtimeconfig.dev.json

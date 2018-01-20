@@ -8,8 +8,8 @@ namespace WaveFrontParser
     {
         static void Main(string[] args)
         {
-            LoadObjFileHendler Obj = new LoadObjFileHendler("file");
-            
+            LoadObjFileHendler Obj = new LoadObjFileHendler("cube.obj");
+            Console.WriteLine("Result: " + Obj.LoadObj().ToString());
     
 
         }

@@ -33,19 +33,19 @@ namespace WaveFrontParser.Service
             //vertexs.Add (new Vertex() { XAxis = 1, YAxis = -1, ZAxis = 1 });
 
             var lines = content.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-            foreach(var line in lines)
+            foreach (var line in lines)
             {
-                if(line.StartsWith("v "))
+                if (line.StartsWith("v "))
                 {
                     vertexsTab.Add(line.Substring(2));
                 }
             }
 
-            foreach( var vrtx in vertexsTab)
+            foreach (var vrtx in vertexsTab)
             {
                 Vertex vertex = new Vertex();
 
-                var vertTab  = vrtx.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                var vertTab = vrtx.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                 if (vertTab.Length == 3)
                 {
                     vertex.XAxis = Convert.ToDouble(vertTab[0], CultureInfo.InvariantCulture);
@@ -70,15 +70,15 @@ namespace WaveFrontParser.Service
             content = content.Remove(0, content.IndexOf("vn "));
 
             var lines = content.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-            foreach ( var line in lines)
+            foreach (var line in lines)
             {
-                if(line.StartsWith("vn "))
+                if (line.StartsWith("vn "))
                 {
                     normalsTab.Add(line.Substring(3));
                 }
             }
 
-            foreach(var nrml in normalsTab)
+            foreach (var nrml in normalsTab)
             {
                 Normal normal = new Normal();
                 var normTab = nrml.Split(' ', StringSplitOptions.RemoveEmptyEntries);
@@ -103,12 +103,59 @@ namespace WaveFrontParser.Service
         {
             List<TextureVertex> texVerts = new List<TextureVertex>();
 
-            texVerts.Add(new TextureVertex() { XAxis = 0.5, YAxis = 0.2 });
-            texVerts.Add(new TextureVertex() { XAxis = 0.35, YAxis = 0.4 });
+            string content = LoadFile.FileContent;
+            List<string> textVertexsTab = new List<string>();
+            content = content.Remove(0, content.IndexOf("vt "));
+
+            var lines = content.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var line in lines)
+            {
+                if (line.StartsWith("vt "))
+                {
+                    textVertexsTab.Add(line.Substring(3));
+                }
+            }
+
+            foreach (var vert in textVertexsTab)
+            {
+                TextureVertex texVert = new TextureVertex();
+                var vertTab = vert.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+                if (vertTab.Length == 2)
+                {
+                    texVert.XAxis = Convert.ToDouble(vertTab[0], CultureInfo.InvariantCulture);
+                    texVert.YAxis = Convert.ToDouble(vertTab[1], CultureInfo.InvariantCulture);
+                }
+                else throw new NullReferenceException(message: $"Doesn't found x, y TExtureVertex. \n textVertexsTab[this] = {vert}\n");
+
+                texVerts.Add(texVert);
+
+                //normals.Add(new Normal() { XAxis = 0, YAxis = -1, ZAxis = 0 });
+                //normals.Add(new Normal() { XAxis = 0, YAxis = 1, ZAxis = 0 });
+            }
 
             waveFront.TexVertexs = texVerts;
             return texVerts;
         }
 
+        public List<Face> LookForFaces()
+        {
+            List<Face> faces = new List<Face>();
+            faces.Add(new Face()
+            {
+                VertIndicies = new List<int>() { 1, 2, 3 },
+                NormIndicies = new List<int>() { 1, 2, 3 },
+                TexIndicies = new List<int>() { 1, 1, 1 },
+            });
+
+            faces.Add(new Face()
+            {
+                VertIndicies = new List<int>() { 1, 3, 4 },
+                NormIndicies = new List<int>() { 1, 3, 4 },
+                TexIndicies = new List<int>() { 1, 1, 1 },
+            });
+
+            WaveFront.Faces = faces;
+            return faces;
+        }
     }
 }

@@ -12,5 +12,7 @@ namespace WaveFrontParser.Interface
         List<Vertex> LookForVertexs ();
         List<Normal> LookForNormals ();
         List<TextureVertex> LookForTextureVertex ();
+
+        List<Face> LookForFaces();
     }
 }

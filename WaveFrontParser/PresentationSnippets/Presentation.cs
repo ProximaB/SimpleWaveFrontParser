@@ -77,15 +77,15 @@ namespace WaveFrontParser.PresentationSnippets
 
             SimpleWaveFrontService _WaveService = new SimpleWaveFrontService(Obj);
 
-            var texVerts = _WaveService.WaveFront.TexVertexs;
+            _WaveService.LookForVertexs();
+            _WaveService.LookForNormals();
+            _WaveService.LookForTextureVertex();
 
-            var i = 1;
-            Console.WriteLine("Founded Vertexes: \n");
-            foreach (var texVert in texVerts)
-            {
-                Console.WriteLine($"{i}. x={texVert.XAxis}, y={texVert.YAxis}");
-                i++;
-            }
+            SimpleWaveFront waveFront = _WaveService.WaveFront;
+            var vertexs = waveFront.Vertexs;
+            var normals = waveFront.Normal;
+            var textVertexs = waveFront.TexVertexs;
+
 
         }
     }

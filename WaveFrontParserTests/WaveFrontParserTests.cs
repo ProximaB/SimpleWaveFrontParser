@@ -103,11 +103,46 @@ namespace WaveFrontParser.Tests
                     {
                         SimpleWaveFrontService waveService = new SimpleWaveFrontService(obj);
 
-                        var textVerts = waveService.LookForTextureVertex();
+                        var texVerts = waveService.LookForTextureVertex();
 
                         bool CompareResult =
-                            (util.Compare(textVerts[0], new TextureVertex() { XAxis = 0.5, YAxis = 0.2 }) == 1)
-                            && (util.Compare(textVerts[1], new TextureVertex() { XAxis = 0.35, YAxis = 0.4 }) == 1);
+                            (util.Compare(texVerts[0], new TextureVertex() { XAxis = 0.5, YAxis = 0.2 }) == 1)
+                            && (util.Compare(texVerts[1], new TextureVertex() { XAxis = 0.35, YAxis = 0.4 }) == 1);
+
+                        Assert.True(CompareResult);
+                    }
+                }
+
+                public class LookForFacesIndicies
+                {
+                    CompareObjects util = new CompareObjects();
+
+                    static string testFaces = "f 1/1/1 2/2/1 3/3/1\n\r"
+                                                +"f 1/1/1 3/3/1 4/4/1\n\r";
+                    //mock
+                    ILoadObjFileHandler obj = new LoadObjFileHandlerMock(testFaces);
+
+                    [Fact]
+                    public void LookForFaces_IsFindingFacesFromRawText_FoundProperFaces()
+                    {
+                        SimpleWaveFrontService waveService = new SimpleWaveFrontService(obj);
+
+                        var facesIndicies = waveService.LookForFaces();
+
+                        bool CompareResult =
+                            (util.Compare(facesIndicies[0], new Face()
+                            {
+                                VertIndicies = new List<int>() { 1, 2, 3 },
+                                NormIndicies = new List<int>() { 1, 2, 3 },
+                                TexIndicies = new List<int>() { 1, 1, 1 },
+                            }) == 1)
+                        &&
+                            (util.Compare(facesIndicies[1], new Face()
+                            {
+                                VertIndicies = new List<int>() { 1, 3, 4 },
+                                NormIndicies = new List<int>() { 1, 3, 4 },
+                                TexIndicies = new List<int>() { 1, 1, 1 },
+                            }) == 1);
 
                         Assert.True(CompareResult);
                     }

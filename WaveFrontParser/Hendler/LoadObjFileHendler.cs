@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using WaveFrontParser.Interface;
 
 namespace WaveFrontParser.Hendler
 {
-    public class LoadObjFileHendler : IDisposable
+    public class LoadObjFileHendler : ILoadObjFileHendler, IDisposable
     {
         private string filePath;
         public string FileContent { get; set; }
@@ -14,7 +15,7 @@ namespace WaveFrontParser.Hendler
         {
             get { return filePath; }
 
-            private set
+            set
             {
               if (value [1] != ':') filePath = Environment.CurrentDirectory.ToString() + @"\"+ value;
               else filePath = value;

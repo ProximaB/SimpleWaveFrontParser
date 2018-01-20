@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WaveFrontParser.Model
 {
-    class Normal
+    public class Normal
     {
         public double XAxis { get; set; }
         public double YAxis { get; set; }

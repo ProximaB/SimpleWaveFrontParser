@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WaveFrontParser.Model
 {
-    class SimpleWaveFront
+    public class SimpleWaveFront
     {
         public List<Face> Faces { get; set; }
         public Vertex[] Vertexs { get; set; }

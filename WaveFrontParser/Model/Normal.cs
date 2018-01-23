@@ -6,8 +6,8 @@ namespace WaveFrontParser.Model
 {
     public class Normal
     {
-        public double XAxis { get; set; }
-        public double YAxis { get; set; }
-        public double ZAxis { get; set; }
+        public float XAxis { get; set; }
+        public float YAxis { get; set; }
+        public float ZAxis { get; set; }
     }
 }

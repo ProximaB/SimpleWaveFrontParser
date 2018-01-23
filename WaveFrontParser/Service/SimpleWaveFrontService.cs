@@ -10,6 +10,8 @@ namespace WaveFrontParser.Service
 {
     public class SimpleWaveFrontService : ISimpleWaveFrontService
     {
+        System.Globalization.CultureInfo customCulture = (System.Globalization.CultureInfo)System.Threading.Thread.CurrentThread.CurrentCulture.Clone();      
+
         private SimpleWaveFront waveFront = new SimpleWaveFront();
 
         public ILoadObjFileHandler LoadFile { get; set; }
@@ -19,6 +21,10 @@ namespace WaveFrontParser.Service
         public SimpleWaveFrontService(ILoadObjFileHandler _loadFile)
         {
             LoadFile = _loadFile;
+
+            customCulture.NumberFormat.NumberDecimalSeparator = ".";
+
+            System.Threading.Thread.CurrentThread.CurrentCulture = customCulture;
         }
 
         public List<Vertex> LookForVertexs()
@@ -48,9 +54,9 @@ namespace WaveFrontParser.Service
                 var vertTab = vrtx.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                 if (vertTab.Length == 3)
                 {
-                    vertex.XAxis = Convert.ToDouble(vertTab[0], CultureInfo.InvariantCulture);
-                    vertex.YAxis = Convert.ToDouble(vertTab[1], CultureInfo.InvariantCulture);
-                    vertex.ZAxis = Convert.ToDouble(vertTab[2], CultureInfo.InvariantCulture);
+                    vertex.XAxis = (float)Convert.ToDouble(vertTab[0], CultureInfo.InvariantCulture);
+                    vertex.YAxis = (float)Convert.ToDouble(vertTab[1], CultureInfo.InvariantCulture);
+                    vertex.ZAxis = (float)Convert.ToDouble(vertTab[2], CultureInfo.InvariantCulture);
                 }
                 else throw new NullReferenceException(message: $"Doesn't found x, y, z of Vertex. \n vertexTab[this] = {vrtx}\n");
 
@@ -84,9 +90,9 @@ namespace WaveFrontParser.Service
                 var normTab = nrml.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                 if (normTab.Length == 3)
                 {
-                    normal.XAxis = Convert.ToDouble(normTab[0], CultureInfo.InvariantCulture);
-                    normal.YAxis = Convert.ToDouble(normTab[1], CultureInfo.InvariantCulture);
-                    normal.ZAxis = Convert.ToDouble(normTab[2], CultureInfo.InvariantCulture);
+                    normal.XAxis = (float)Convert.ToDouble(normTab[0], CultureInfo.InvariantCulture);
+                    normal.YAxis = (float)Convert.ToDouble(normTab[1], CultureInfo.InvariantCulture);
+                    normal.ZAxis = (float)Convert.ToDouble(normTab[2], CultureInfo.InvariantCulture);
                 }
                 else throw new NullReferenceException(message: $"Doesn't found x, y, z of Normals. \n normalTab[this] = {nrml}\n");
 
@@ -122,8 +128,8 @@ namespace WaveFrontParser.Service
                 var vertTab = vert.Split(' ', StringSplitOptions.RemoveEmptyEntries);
                 if (vertTab.Length == 2)
                 {
-                    texVert.XAxis = Convert.ToDouble(vertTab[0], CultureInfo.InvariantCulture);
-                    texVert.YAxis = Convert.ToDouble(vertTab[1], CultureInfo.InvariantCulture);
+                    texVert.XAxis = (float)Convert.ToDouble(vertTab[0], CultureInfo.InvariantCulture);
+                    texVert.YAxis = (float)Convert.ToDouble(vertTab[1], CultureInfo.InvariantCulture);
                 }
                 else throw new NullReferenceException(message: $"Doesn't found x, y TExtureVertex. \n textVertexsTab[this] = {vert}\n");
 

@@ -106,8 +106,8 @@ namespace WaveFrontParser.Tests
                         var texVerts = waveService.LookForTextureVertex();
 
                         bool CompareResult =
-                            (util.Compare(texVerts[0], new TextureVertex() { XAxis = 0.5, YAxis = 0.2 }) == 1)
-                            && (util.Compare(texVerts[1], new TextureVertex() { XAxis = 0.35, YAxis = 0.4 }) == 1);
+                            (util.Compare(texVerts[0], new TextureVertex() { XAxis = 0.5f, YAxis = 0.2f }) == 1)
+                            && (util.Compare(texVerts[1], new TextureVertex() { XAxis = 0.35f, YAxis = 0.4f }) == 1);
 
                         Assert.True(CompareResult);
                     }

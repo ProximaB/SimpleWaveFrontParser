@@ -6,7 +6,7 @@ namespace WaveFrontParser.Model
 {
     public class TextureVertex
     {
-        public double XAxis { get; set; }
-        public double YAxis { get; set; }
+        public float XAxis { get; set; }
+        public float YAxis { get; set; }
     }
 }

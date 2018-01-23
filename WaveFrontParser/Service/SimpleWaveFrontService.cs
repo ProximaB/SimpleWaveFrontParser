@@ -169,12 +169,12 @@ namespace WaveFrontParser.Service
                 {
                     foreach(var faceEnum in faceTab)
                     {
-                        var temp = faceEnum.Split('/', StringSplitOptions.RemoveEmptyEntries);
-                        if (temp.Length == 3)
+                        var temp = faceEnum.Split(' ', StringSplitOptions.RemoveEmptyEntries); // /
+                        if (temp.Length == 1)
                         {
-                            face.VertIndicies.Add(Convert.ToInt16(temp[0]));
-                            face.NormIndicies.Add(Convert.ToInt16(temp[1]));
-                            face.TexIndicies.Add(Convert.ToInt16(temp[2]));
+                            face.VertIndicies.Add(Convert.ToInt32(temp[0]));
+                            //face.NormIndicies.Add(Convert.ToInt16(temp[1]));
+                            //face.TexIndicies.Add(Convert.ToInt16(temp[2]));
                         }
                         else throw new NullReferenceException(message: $"Doesn't found indicies for Face. \n faceTab[this] = {faceEnum.ToString()}\n");
                     }

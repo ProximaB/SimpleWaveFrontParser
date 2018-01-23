@@ -1,0 +1,11 @@
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\bin\Release\netcoreapp2.0\WaveFrontParser.deps.json
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\bin\Release\netcoreapp2.0\WaveFrontParser.runtimeconfig.json
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\bin\Release\netcoreapp2.0\WaveFrontParser.runtimeconfig.dev.json
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\bin\Release\netcoreapp2.0\WaveFrontParser.dll
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\bin\Release\netcoreapp2.0\WaveFrontParser.pdb
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\obj\Release\netcoreapp2.0\WaveFrontParser.csproj.CoreCompileInputs.cache
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\obj\Release\netcoreapp2.0\WaveFrontParser.AssemblyInfoInputs.cache
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\obj\Release\netcoreapp2.0\WaveFrontParser.AssemblyInfo.cs
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\obj\Release\netcoreapp2.0\WaveFrontParser.dll
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\obj\Release\netcoreapp2.0\WaveFrontParser.pdb
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParser\obj\Release\netcoreapp2.0\WaveFrontParser.csprojResolveAssemblyReference.cache

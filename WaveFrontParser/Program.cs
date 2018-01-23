@@ -6,6 +6,7 @@ using WaveFrontParser.Service;
 using WaveFrontParser.PresentationSnippets;
 using System.Linq;
 using WaveFrontParser.Handler;
+using System.Text;
 
 namespace WaveFrontParser
 {
@@ -20,7 +21,7 @@ namespace WaveFrontParser
 
 
 
-            LoadObjFileHandler Obj = new LoadObjFileHandler("obj2.obj");
+            LoadObjFileHandler Obj = new LoadObjFileHandler("CzescPierwszaTrojkaty.obj");
             Console.WriteLine("File Loaded: " + Obj.LoadObj().ToString());
 
             SimpleWaveFrontService _WaveService = new SimpleWaveFrontService(Obj);
@@ -28,11 +29,12 @@ namespace WaveFrontParser
             FileStreamHandler FileNormal = new FileStreamHandler("Normals.txt");
             FileStreamHandler FileVertex = new FileStreamHandler("Vertex.txt");
             FileStreamHandler FileFaces = new FileStreamHandler("Faces.txt");
+            FileStreamHandler FileTextures = new FileStreamHandler("Textures.txt");
 
             _WaveService.LookForVertexs();
-            _WaveService.LookForNormals();
-            _WaveService.LookForTextureVertex();
-            _WaveService.LookForFaces();
+           // _WaveService.LookForNormals();
+            //_WaveService.LookForTextureVertex();
+           _WaveService.LookForFaces();
 
             SimpleWaveFront waveFront = _WaveService.WaveFront;
 
@@ -41,41 +43,46 @@ namespace WaveFrontParser
             var textVertexs = waveFront.TexVertexs;
             var faces = waveFront.Faces;
 
-            Console.WriteLine("\nNomals:\n");
-            foreach (var norm in normals)
-            {
-                Console.Write($"{norm.XAxis}, {norm.YAxis}, {norm.ZAxis}, | ");
-                FileNormal.AppendTextToFIle($"{norm.XAxis} {norm.YAxis} {norm.ZAxis} ");
-            }
-            Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)));
+            //Console.WriteLine("\nNomals:\n");
+            //foreach (var norm in normals)
+            //{
+            //    Console.Write($"{norm.XAxis}, {norm.YAxis}, {norm.ZAxis}, | ");
+            //    FileNormal.AppendTextToFIle($"{norm.XAxis}, {norm.YAxis}, {norm.ZAxis}, ");
+            //}
+            //Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)));
 
             Console.WriteLine("\nVertex:\n");
+            StringBuilder sb = new StringBuilder();
             foreach (var vert in vertexs)
             {
-                Console.Write($"{vert.XAxis}, {vert.YAxis}, {vert.ZAxis}, | ");
-                FileVertex.AppendTextToFIle($"{vert.XAxis} {vert.YAxis} {vert.ZAxis} ");
+                //Console.Write($"{vert.XAxis}, {vert.YAxis}, {vert.ZAxis}, | ");
+                sb.Append("{{ {vert.XAxis}, {vert.YAxis}, {vert.ZAxis} }}, ");
+                
             }
+            FileVertex.AppendTextToFIle(sb.ToString());
             Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)));
 
-            Console.WriteLine("\nVerTexture:\n");
-            foreach (var tVert in textVertexs)
-            {
-                Console.Write($"{tVert.XAxis}, {tVert.YAxis} | ");
-                FileVertex.AppendTextToFIle($"{tVert.XAxis} {tVert.YAxis} ");
-            }
-            Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)));
+            //Console.WriteLine("\nVerTexture:\n");
+            //foreach (var tVert in textVertexs)
+            //{
+            //    Console.Write($"{tVert.XAxis}, {tVert.YAxis} | ");
+            //    FileTextures.AppendTextToFIle($"{tVert.XAxis} {tVert.YAxis} ");
+            //}
+            //Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)));
 
             Console.WriteLine("\nIndicies:\n");
+            StringBuilder sa = new StringBuilder();
             foreach (var face in faces)
             {
                 face.VertIndicies.ForEach(a =>
                 {
-                    Console.Write($"{a}, ");
-                    FileFaces.AppendTextToFIle(a.ToString() + " ");
+                    // Console.Write($"{a}, ");
+                    sa.Append(a.ToString() + ", ");
+                    
                 });
-                Console.Write(" | ");
+               // Console.Write(" | ");
             }
-
+            FileFaces.AppendTextToFIle(sa.ToString());
             Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)) + "\n");
         }
     }

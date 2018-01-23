@@ -44,16 +44,24 @@ namespace WaveFrontParser
             Console.WriteLine("\nNomals:\n");
             foreach (var norm in normals)
             {
-                Console.Write($"{norm.XAxis}, {norm.YAxis}, {norm.ZAxis}, ");
-                Console.Write(FileNormal.AppendTextToFIle($"{norm.XAxis} {norm.YAxis} {norm.ZAxis} "));
+                Console.Write($"{norm.XAxis}, {norm.YAxis}, {norm.ZAxis}, | ");
+                FileNormal.AppendTextToFIle($"{norm.XAxis} {norm.YAxis} {norm.ZAxis} ");
             }
             Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)));
 
             Console.WriteLine("\nVertex:\n");
             foreach (var vert in vertexs)
             {
-                Console.Write($"{vert.XAxis}, {vert.YAxis}, {vert.ZAxis}, ");
-                Console.Write(FileVertex.AppendTextToFIle($"{vert.XAxis} {vert.YAxis} {vert.ZAxis} "));
+                Console.Write($"{vert.XAxis}, {vert.YAxis}, {vert.ZAxis}, | ");
+                FileVertex.AppendTextToFIle($"{vert.XAxis} {vert.YAxis} {vert.ZAxis} ");
+            }
+            Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)));
+
+            Console.WriteLine("\nVerTexture:\n");
+            foreach (var tVert in textVertexs)
+            {
+                Console.Write($"{tVert.XAxis}, {tVert.YAxis} | ");
+                FileVertex.AppendTextToFIle($"{tVert.XAxis} {tVert.YAxis} ");
             }
             Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)));
 
@@ -63,9 +71,9 @@ namespace WaveFrontParser
                 face.VertIndicies.ForEach(a =>
                 {
                     Console.Write($"{a}, ");
-                    Console.Write(FileFaces.AppendTextToFIle(a.ToString() + " "));
+                    FileFaces.AppendTextToFIle(a.ToString() + " ");
                 });
-                Console.WriteLine("\n");
+                Console.Write(" | ");
             }
 
             Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)) + "\n");

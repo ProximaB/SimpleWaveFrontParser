@@ -19,23 +19,30 @@ namespace WaveFrontParser
 
             //Presentation.Interpolation();
 
+            string name_ = "ZROBOT";
+            for(var i = 0; i <= 5; i++)
+            {
+                work(name_ + i);
+            }
 
 
-            LoadObjFileHandler Obj = new LoadObjFileHandler("cubeBlender.obj");
+            void work(string name)
+            { 
+            LoadObjFileHandler Obj = new LoadObjFileHandler(name + ".obj");
             Console.WriteLine("File Loaded: " + Obj.LoadObj().ToString());
 
             SimpleWaveFrontService _WaveService = new SimpleWaveFrontService(Obj);
 
             FileStreamHandler FileNormal = new FileStreamHandler("Normals.txt");
-            FileStreamHandler FileVertex = new FileStreamHandler("Vertex.txt");
-            FileStreamHandler FileFaces = new FileStreamHandler("Faces.txt");
+            FileStreamHandler FileVertex = new FileStreamHandler(name + "Vertex.txt");
+            FileStreamHandler FileFaces = new FileStreamHandler(name + "Faces.txt");
             FileStreamHandler FileTextures = new FileStreamHandler("Textures.txt");
-            FileStreamHandler Stats = new FileStreamHandler("Stats.txt");
+            FileStreamHandler Stats = new FileStreamHandler(name + "Stats.txt");
 
             _WaveService.LookForVertexs();
             //_WaveService.LookForNormals();
             //_WaveService.LookForTextureVertex();
-           _WaveService.LookForFaces(2);
+            _WaveService.LookForFaces(2);
 
             SimpleWaveFront waveFront = _WaveService.WaveFront;
 
@@ -84,18 +91,19 @@ namespace WaveFrontParser
             {
                 face.VertIndicies.ForEach(a =>
                 {
-                     //Console.Write($"{a}, ");
+                    //Console.Write($"{a}, ");
                     //sa.Append(a.ToString() + ", ");
                     sa.Append(a.ToString() + " ");
 
                 });
-               // Console.Write(" | ");
+                // Console.Write(" | ");
             }
             FileFaces.AppendTextToFIle(sa.ToString());
             Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)) + "\n");
 
             Stats.AppendTextToFIle($"Vertex: {(vertexs.Count * 3).ToString()} \n");
             Stats.AppendTextToFIle($"Indicies: {(faces.Count * 3).ToString()}");
+        }
         }
     }
 }

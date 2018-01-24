@@ -1,0 +1,2 @@
+Vertex: 1035 
+Indicies: 2202

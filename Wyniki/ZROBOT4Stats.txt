@@ -1,0 +1,2 @@
+Vertex: 333 
+Indicies: 654

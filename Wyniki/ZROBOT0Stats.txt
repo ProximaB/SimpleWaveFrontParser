@@ -1,0 +1,2 @@
+Vertex: 453 
+Indicies: 909

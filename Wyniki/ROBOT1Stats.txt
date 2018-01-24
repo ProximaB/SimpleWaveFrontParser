@@ -1,0 +1,2 @@
+Vertex: 1419 
+Indicies: 3042

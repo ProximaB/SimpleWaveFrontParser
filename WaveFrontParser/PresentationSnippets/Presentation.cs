@@ -80,7 +80,7 @@ namespace WaveFrontParser.PresentationSnippets
             _WaveService.LookForVertexs();
             _WaveService.LookForNormals();
             _WaveService.LookForTextureVertex();
-            _WaveService.LookForFaces();
+            _WaveService.LookForFaces(1);
 
             SimpleWaveFront waveFront = _WaveService.WaveFront;
             var vertexs = waveFront.Vertexs;
@@ -116,7 +116,7 @@ namespace WaveFrontParser.PresentationSnippets
             _WaveService.LookForVertexs();
             _WaveService.LookForNormals();
             _WaveService.LookForTextureVertex();
-            _WaveService.LookForFaces();
+            _WaveService.LookForFaces(1);
 
             SimpleWaveFront waveFront = _WaveService.WaveFront;
             var vertexs = waveFront.Vertexs;

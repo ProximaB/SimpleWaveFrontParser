@@ -13,6 +13,6 @@ namespace WaveFrontParser.Interface
         List<Normal> LookForNormals ();
         List<TextureVertex> LookForTextureVertex ();
 
-        List<Face> LookForFaces();
+        List<Face> LookForFaces(int faceType);
     }
 }

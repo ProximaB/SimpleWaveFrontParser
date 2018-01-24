@@ -1,0 +1,17 @@
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\obj\Release\netcoreapp2.0\WaveFrontParser.Tests.csprojResolveAssemblyReference.cache
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\obj\Release\netcoreapp2.0\WaveFrontParser.Tests.csproj.CoreCompileInputs.cache
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\obj\Release\netcoreapp2.0\WaveFrontParser.Tests.AssemblyInfoInputs.cache
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\obj\Release\netcoreapp2.0\WaveFrontParser.Tests.AssemblyInfo.cs
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\bin\Release\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\bin\Release\netcoreapp2.0\xunit.runner.reporters.netcoreapp10.dll
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\bin\Release\netcoreapp2.0\xunit.runner.utility.netcoreapp10.dll
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\bin\Release\netcoreapp2.0\xunit.runner.json
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\bin\Release\netcoreapp2.0\WaveFrontParser.Tests.deps.json
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\bin\Release\netcoreapp2.0\WaveFrontParser.Tests.runtimeconfig.json
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\bin\Release\netcoreapp2.0\WaveFrontParser.Tests.runtimeconfig.dev.json
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\bin\Release\netcoreapp2.0\WaveFrontParser.Tests.dll
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\bin\Release\netcoreapp2.0\WaveFrontParser.Tests.pdb
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\bin\Release\netcoreapp2.0\WaveFrontParser.dll
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\bin\Release\netcoreapp2.0\WaveFrontParser.pdb
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\obj\Release\netcoreapp2.0\WaveFrontParser.Tests.dll
+C:\Users\barte\source\repos\SimpleWaveFrontParser\WaveFrontParserTests\obj\Release\netcoreapp2.0\WaveFrontParser.Tests.pdb

@@ -113,7 +113,7 @@ namespace WaveFrontParser.Tests
                     }
                 }
 
-                public class LookForFacesIndicies
+                public class LookForFacesIndiciesType1
                 {
                     CompareObjects util = new CompareObjects();
 
@@ -123,11 +123,11 @@ namespace WaveFrontParser.Tests
                     ILoadObjFileHandler obj = new LoadObjFileHandlerMock(testFaces);
 
                     [Fact]
-                    public void LookForFaces_IsFindingFacesFromRawText_FoundProperFaces()
+                    public void LookForFaces_IsFindingFaces1TypeFromRawText_FoundProperFaces()
                     {
                         SimpleWaveFrontService waveService = new SimpleWaveFrontService(obj);
 
-                        var facesIndicies = waveService.LookForFaces();
+                        var facesIndicies = waveService.LookForFaces(1);
 
                         bool CompareResult =
                             (util.Compare(facesIndicies[0], new Face()
@@ -142,6 +142,37 @@ namespace WaveFrontParser.Tests
                                 VertIndicies = new List<int>() { 1, 3, 4 },
                                 NormIndicies = new List<int>() { 1, 3, 4 },
                                 TexIndicies = new List<int>() { 1, 1, 1 },
+                            }) == 1);
+
+                        Assert.True(CompareResult);
+                    }
+                }
+
+                public class LookForFacesIndiciesType2
+                {
+                    CompareObjects util = new CompareObjects();
+
+                    static string testFaces = "f 6 4 0\n\r"
+                                                + "f 1 3 4\n\r";
+                    //mock
+                    ILoadObjFileHandler obj = new LoadObjFileHandlerMock(testFaces);
+
+                    [Fact]
+                    public void LookForFaces_IsFindingFaces2TypeFromRawText_FoundProperFaces()
+                    {
+                        SimpleWaveFrontService waveService = new SimpleWaveFrontService(obj);
+
+                        var facesIndicies = waveService.LookForFaces(2);
+
+                        bool CompareResult =
+                            (util.Compare(facesIndicies[0], new Face()
+                            {
+                                VertIndicies = new List<int>() { 6, 4, 0 },
+                            }) == 1)
+                        &&
+                            (util.Compare(facesIndicies[1], new Face()
+                            {
+                                VertIndicies = new List<int>() { 1, 3, 4 },
                             }) == 1);
 
                         Assert.True(CompareResult);

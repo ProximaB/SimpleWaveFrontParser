@@ -21,7 +21,7 @@ namespace WaveFrontParser
 
 
 
-            LoadObjFileHandler Obj = new LoadObjFileHandler("CzescPierwszaTrojkaty.obj");
+            LoadObjFileHandler Obj = new LoadObjFileHandler("cubeBlender.obj");
             Console.WriteLine("File Loaded: " + Obj.LoadObj().ToString());
 
             SimpleWaveFrontService _WaveService = new SimpleWaveFrontService(Obj);
@@ -33,9 +33,9 @@ namespace WaveFrontParser
             FileStreamHandler Stats = new FileStreamHandler("Stats.txt");
 
             _WaveService.LookForVertexs();
-           // _WaveService.LookForNormals();
+            //_WaveService.LookForNormals();
             //_WaveService.LookForTextureVertex();
-           _WaveService.LookForFaces();
+           _WaveService.LookForFaces(2);
 
             SimpleWaveFront waveFront = _WaveService.WaveFront;
 
@@ -44,6 +44,7 @@ namespace WaveFrontParser
             var textVertexs = waveFront.TexVertexs;
             var faces = waveFront.Faces;
 
+            #region normals
             //Console.WriteLine("\nNomals:\n");
             //foreach (var norm in normals)
             //{
@@ -51,6 +52,8 @@ namespace WaveFrontParser
             //    FileNormal.AppendTextToFIle($"{norm.XAxis}, {norm.YAxis}, {norm.ZAxis}, ");
             //}
             //Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)));
+            #endregion
+
 
             Console.WriteLine("\nVertex:\n");
             StringBuilder sb = new StringBuilder();
@@ -64,6 +67,7 @@ namespace WaveFrontParser
             FileVertex.AppendTextToFIle(sb.ToString());
             Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)));
 
+            #region texture
             //Console.WriteLine("\nVerTexture:\n");
             //foreach (var tVert in textVertexs)
             //{
@@ -71,6 +75,8 @@ namespace WaveFrontParser
             //    FileTextures.AppendTextToFIle($"{tVert.XAxis} {tVert.YAxis} ");
             //}
             //Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)));
+            #endregion
+
 
             Console.WriteLine("\nIndicies:\n");
             StringBuilder sa = new StringBuilder();

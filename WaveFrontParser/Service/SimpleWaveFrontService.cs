@@ -143,8 +143,9 @@ namespace WaveFrontParser.Service
             return texVerts;
         }
 
-        public List<Face> LookForFaces()
+        public List<Face> LookForFaces(int _faceType)
        {
+            int faceType = _faceType;
             List<Face> faces = new List<Face>();
 
 
@@ -169,14 +170,40 @@ namespace WaveFrontParser.Service
                 {
                     foreach(var faceEnum in faceTab)
                     {
-                        var temp = faceEnum.Split('/', StringSplitOptions.RemoveEmptyEntries); // / lub ' '
-                        //if (temp.Length == 1)
-                        //{
-                            face.VertIndicies.Add(Convert.ToInt32(temp[0]));
-                        //face.NormIndicies.Add(Convert.ToInt32(temp[1]));
-                        //face.TexIndicies.Add(Convert.ToInt32(temp[2]));
-                        //}
-                        //else throw new NullReferenceException(message: $"Doesn't found indicies for Face. \n faceTab[this] = {faceEnum.ToString()}\n");
+                        if(faceType == 1)
+                        {
+                            var temp = faceEnum.Split('/', StringSplitOptions.RemoveEmptyEntries); // v/n/t
+                            if (temp.Length == 3)
+                            {
+                                face.VertIndicies.Add(Convert.ToInt32(temp[0]));
+                                face.NormIndicies.Add(Convert.ToInt32(temp[1]));
+                                face.TexIndicies.Add(Convert.ToInt32(temp[2]));
+                            }
+                            else throw new NullReferenceException(message: $"Doesn't found indicies for Face. \n faceTab[this] = {faceEnum.ToString()}\n");
+                        }
+                        if (faceType == 2) // v//t
+                        {
+                            var temp = faceEnum.Split(new [] { '/', '/' }, StringSplitOptions.RemoveEmptyEntries); // / lub ' '
+                            if (temp.Length == 2)
+                            {
+                                face.VertIndicies.Add(Convert.ToInt32(temp[0]));
+                               // face.NormIndicies.Add(Convert.ToInt32(temp[1]));
+                                face.TexIndicies.Add(Convert.ToInt32(temp[1]));
+                            }
+                            else throw new NullReferenceException(message: $"Doesn't found indicies for Face. \n faceTab[this] = {faceEnum.ToString()}\n");
+                        }
+                        else
+                        {
+                            var temp = faceEnum.Split(' ', StringSplitOptions.RemoveEmptyEntries); // / lub ' '
+                            if (temp.Length == 1)
+                            {
+                                face.VertIndicies.Add(Convert.ToInt32(temp[0]));
+                            }
+                            else throw new NullReferenceException(message: $"Doesn't found indicies for Face. \n faceTab[this] = {faceEnum.ToString()}\n");
+                        }
+                        
+
+                    
                     }
                 }
                 else throw new NullReferenceException(message: $"Doesn't found x, y TExtureVertex. \n txtFace[this] = {textFacesTab.ToString()}\n");

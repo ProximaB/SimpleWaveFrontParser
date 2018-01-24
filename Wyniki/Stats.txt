@@ -1,2 +1,2 @@
-Vertex: 24 
-Indicies: 12
+Vertex: 1362747 
+Indicies: 2725614

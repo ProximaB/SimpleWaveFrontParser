@@ -21,7 +21,7 @@ namespace WaveFrontParser
 
 
 
-            LoadObjFileHandler Obj = new LoadObjFileHandler("cube.obj");
+            LoadObjFileHandler Obj = new LoadObjFileHandler("CzescPierwszaTrojkaty.obj");
             Console.WriteLine("File Loaded: " + Obj.LoadObj().ToString());
 
             SimpleWaveFrontService _WaveService = new SimpleWaveFrontService(Obj);
@@ -78,7 +78,7 @@ namespace WaveFrontParser
             {
                 face.VertIndicies.ForEach(a =>
                 {
-                     Console.Write($"{a}, ");
+                     //Console.Write($"{a}, ");
                     //sa.Append(a.ToString() + ", ");
                     sa.Append(a.ToString() + " ");
 

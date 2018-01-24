@@ -1,0 +1,2 @@
+Vertex: 24 
+Indicies: 12

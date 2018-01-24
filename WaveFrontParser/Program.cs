@@ -21,7 +21,7 @@ namespace WaveFrontParser
 
 
 
-            LoadObjFileHandler Obj = new LoadObjFileHandler("CzescPierwszaTrojkaty.obj");
+            LoadObjFileHandler Obj = new LoadObjFileHandler("cube.obj");
             Console.WriteLine("File Loaded: " + Obj.LoadObj().ToString());
 
             SimpleWaveFrontService _WaveService = new SimpleWaveFrontService(Obj);
@@ -30,6 +30,7 @@ namespace WaveFrontParser
             FileStreamHandler FileVertex = new FileStreamHandler("Vertex.txt");
             FileStreamHandler FileFaces = new FileStreamHandler("Faces.txt");
             FileStreamHandler FileTextures = new FileStreamHandler("Textures.txt");
+            FileStreamHandler Stats = new FileStreamHandler("Stats.txt");
 
             _WaveService.LookForVertexs();
            // _WaveService.LookForNormals();
@@ -56,8 +57,9 @@ namespace WaveFrontParser
             foreach (var vert in vertexs)
             {
                 //Console.Write($"{vert.XAxis}, {vert.YAxis}, {vert.ZAxis}, | ");
-                sb.Append("{{ {vert.XAxis}, {vert.YAxis}, {vert.ZAxis} }}, ");
-                
+                //sb.Append($"{{ {vert.XAxis}, {vert.YAxis}, {vert.ZAxis} }}, ");
+                sb.Append($"{vert.XAxis} {vert.YAxis} {vert.ZAxis} ");
+
             }
             FileVertex.AppendTextToFIle(sb.ToString());
             Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)));
@@ -76,14 +78,18 @@ namespace WaveFrontParser
             {
                 face.VertIndicies.ForEach(a =>
                 {
-                    // Console.Write($"{a}, ");
-                    sa.Append(a.ToString() + ", ");
-                    
+                     Console.Write($"{a}, ");
+                    //sa.Append(a.ToString() + ", ");
+                    sa.Append(a.ToString() + " ");
+
                 });
                // Console.Write(" | ");
             }
             FileFaces.AppendTextToFIle(sa.ToString());
             Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)) + "\n");
+
+            Stats.AppendTextToFIle($"Vertex: {(vertexs.Count * 3).ToString()} \n");
+            Stats.AppendTextToFIle($"Indicies: {(faces.Count * 3).ToString()}");
         }
     }
 }

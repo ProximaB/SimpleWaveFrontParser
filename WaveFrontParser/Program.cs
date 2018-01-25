@@ -24,7 +24,7 @@ namespace WaveFrontParser
             {
                 work(name_ + i);
             }
-
+            work("ZROBOT");
 
             void work(string name)
             { 
@@ -33,14 +33,14 @@ namespace WaveFrontParser
 
             SimpleWaveFrontService _WaveService = new SimpleWaveFrontService(Obj);
 
-            FileStreamHandler FileNormal = new FileStreamHandler("Normals.txt");
+            FileStreamHandler FileNormal = new FileStreamHandler(name + "Normals.txt");
             FileStreamHandler FileVertex = new FileStreamHandler(name + "Vertex.txt");
             FileStreamHandler FileFaces = new FileStreamHandler(name + "Faces.txt");
             FileStreamHandler FileTextures = new FileStreamHandler("Textures.txt");
             FileStreamHandler Stats = new FileStreamHandler(name + "Stats.txt");
 
             _WaveService.LookForVertexs();
-            //_WaveService.LookForNormals();
+            _WaveService.LookForNormals();
             //_WaveService.LookForTextureVertex();
             _WaveService.LookForFaces(2);
 
@@ -51,15 +51,17 @@ namespace WaveFrontParser
             var textVertexs = waveFront.TexVertexs;
             var faces = waveFront.Faces;
 
-            #region normals
-            //Console.WriteLine("\nNomals:\n");
-            //foreach (var norm in normals)
-            //{
-            //    Console.Write($"{norm.XAxis}, {norm.YAxis}, {norm.ZAxis}, | ");
-            //    FileNormal.AppendTextToFIle($"{norm.XAxis}, {norm.YAxis}, {norm.ZAxis}, ");
-            //}
-            //Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)));
-            #endregion
+                #region normals
+                Console.WriteLine("\nNomals:\n");
+                StringBuilder nr = new StringBuilder();
+                foreach (var norm in normals)
+                {
+                    //Console.Write($"{norm.XAxis}, {norm.YAxis}, {norm.ZAxis}, | ");
+                     nr.Append($"{norm.XAxis}, {norm.YAxis}, {norm.ZAxis}, ");
+                }
+                FileNormal.AppendTextToFIle(nr.ToString());
+                Console.WriteLine("\n" + String.Concat(Enumerable.Repeat("_", 120)));
+                #endregion
 
 
             Console.WriteLine("\nVertex:\n");
@@ -103,7 +105,8 @@ namespace WaveFrontParser
 
             Stats.AppendTextToFIle($"Vertex: {(vertexs.Count * 3).ToString()} \n");
             Stats.AppendTextToFIle($"Indicies: {(faces.Count * 3).ToString()}");
-        }
+            Stats.AppendTextToFIle($"Normals: {(normals.Count * 3).ToString()}");
+            }
         }
     }
 }

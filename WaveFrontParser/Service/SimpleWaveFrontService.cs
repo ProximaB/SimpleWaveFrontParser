@@ -180,8 +180,9 @@ namespace WaveFrontParser.Service
                                 face.TexIndicies.Add(Convert.ToInt32(temp[2]));
                             }
                             else throw new NullReferenceException(message: $"Doesn't found indicies for Face. \n faceTab[this] = {faceEnum.ToString()}\n");
+                           
                         }
-                        if (faceType == 2) // v//t
+                        else if (faceType == 2) // v//t
                         {
                             var temp = faceEnum.Split(new [] { '/', '/' }, StringSplitOptions.RemoveEmptyEntries); // / lub ' '
                             if (temp.Length == 2)

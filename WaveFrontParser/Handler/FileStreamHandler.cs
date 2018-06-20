@@ -7,12 +7,13 @@ namespace WaveFrontParser.Handler
 {
     public class FileStreamHandler
     {
-        static string  path = @"C:\Users\barte\source\repos\SimpleWaveFrontParser\Wyniki";
+        static string  path;
         private string fileName;
 
-        public FileStreamHandler(string _fileName)
+        public FileStreamHandler(string _fileName, string _path= @"C:\Users\barte\source\repos\SimpleWaveFrontParser\Wyniki")
         {
             fileName = _fileName;
+            path = _path;
             try
             {
                 Directory.CreateDirectory(path);
